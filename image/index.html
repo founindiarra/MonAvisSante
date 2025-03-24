@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparaison des Problèmes - Hôpital</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="enquete.html">Enquête</a></li>
+                <li><a href="tableau-bord.html">Tableau de Bord</a></li>
+                <li><a href="comparaison.html">Comparaison des Problèmes</a></li>
+                <li><a href="a-propos.html">À propos</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+      <h1>Tableau Comparatif des indicateurs de mésure d'insatisfaction et piste d'amélioration</h1>
+      
+      <section class="filters">
+          <h2>Filtrer par :</h2>
+          
+          <!-- Filtre de commune -->
+          <label for="communeSelect">Sélectionner une commune :</label>
+          <select id="communeSelect">
+              <option value="commune1">Cocody</option>
+              <option value="commune2">Marcory</option>
+              <option value="commune3">Adjamé</option>
+              <option value="commune4">Yopougon</option>
+          </select>
+
+          <!-- Filtre de date -->
+          <label for="dateSelect">Sélectionner une date :</label>
+          <input type="date" id="dateSelect">
+          <button id="applyFilter">Appliquer le filtre</button>
+          <button id="showAll">Tout afficher</button> <!-- Nouveau bouton -->
+      </section>
+
+      <section class="comparison-table">
+          <h2>Tableau de Comparaison des Problèmes</h2>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Hôpital</th>
+                      <th>Problème d'Accueil (%)</th>
+                      <th>Temps d'Attente (%)</th>
+                      <th>Qualité des Soins (%)</th>
+                      <th>Propreté (%)</th>
+                      <th>Actions d'Amélioration</th>
+                    </tr>
+                  </thead>
+                  <tbody id="hospitalTableBody">
+                      <!-- Les données seront insérées ici dynamiquement -->
+                  </tbody>
+              </table>
+  
+              <section class="color-legend">
+                  <h3>Légende des Couleurs</h3>
+                  <ul>
+                      <li><span class="color-box green"></span> Satisfaisant (75% à 100%)</li>
+                      <li><span class="color-box yellow"></span> Préoccupant (50% à 74%)</li>
+                      <li><span class="color-box orange"></span> Critique (25% à 49%)</li>
+                      <li><span class="color-box red"></span> Alarme (1% à 24%)</li>
+                  </ul>
+              </section>
+          </section>
+      </main>
+      <footer>
+        <p>&copy; 2025 Hôpital - Tous droits réservés</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
+  
+
+              
+         

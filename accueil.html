@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="dist/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>MonAvisSanté</title>
+    <!-- Script JavaScript -->
+    <script>
+        function toggleMenu() {
+            let menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll("#mobile-menu a").forEach(link => {
+                link.addEventListener("click", () => {
+                    document.getElementById("mobile-menu").classList.add("hidden");
+                });
+            });
+        });
+    </script>
+    <style>
+        .hover-effect:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .btn-avis {
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-avis:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<!-- <img src="/image/sky-183948_640.jpg" alt=""> -->
+<body class="bg-gray-100 m-5">
+    <!-- Entete de la page -->
+    <header class="bg-blue-950 text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <nav class="flex items-center justify-between px-4 md:px-10 py-3">
+            <!-- Logo à gauche -->
+            <div class="flex items-center">
+                <a href="/accueil.html">
+                    <img src="/image/Logo blanc.jpg" alt="Logo" class="h-10 w-40">
+                </a>
+            </div>
+    
+            <!-- Menu burger (mobile) -->
+            <button class="md:hidden text-2xl" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+    
+            <!-- Menu principal -->
+            <div class="hidden md:flex gap-4 items-center">
+                <ul class="list-none flex gap-4">
+                    <li><a href="accueil.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Accueil</a></li>
+                    <li><a href="enquête.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Enquête</a></li>
+                    <li><a href="support client.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Support clients</a></li>
+                    <li><a href="A propos.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">A propos</a></li>
+                    <li><a href="connexion2.html" class="text-black font-bold px-4 py-2 bg-white rounded-full">Se connecter</a></li>
+                </ul>
+            </div>
+        </nav> 
+    </header>
+    
+     <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden fixed top-16 left-0 right-0 bg-white shadow-lg p-4 md:hidden">
+        <ul class="flex flex-col space-y-4 text-center">
+            <li><a href="accueil.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Accueil</a></li>
+            <li><a href="enquête.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Enquête</a></li>
+            <li><a href="support client.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Support clients</a></li>
+            <li><a href="A propos.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">A propos</a></li>
+            <li><a href="connexion2.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Se connecter</a></li>
+        </ul>
+    </div><br>
+
+    <!-- Le corps de ma page -->
+    <main>
+        <section class=" h-[500px] w-full flex flex-col items-center justify-center text-center p-6 rounded bg-cover bg-center" 
+                style="background-image: url('/image/Font\ header.jpg');">
+                <!-- <img src="image/realistic-scene-with-elderly-care-senior-people.jpg" alt="Image" class="w-full object-cover bg-center "> -->
+                <h1 class="text-4xl text-white font-semibold max-w-2xl">
+                    Votre avis compte pour améliorer les services de santé en Côte d'Ivoire.
+                </h1>
+                <!-- <p class="text-white text-x mt-4 italic max-w-3xl">
+                    Chaque jour, des milliers de patients reçoivent des soins à Abidjan.
+                    Mais comment s’assurer que ces services répondent réellement à leurs attentes ? <br> Votre expérience
+                    compte !
+                    Nous recueillons et analysons les retours des patients pour identifier les points forts et les axes
+                    d’amélioration des établissements de santé.
+                </p> -->
+        </section><br>
+    
+        <!-- Section Pourquoi votre avis est important ? -->
+        <section class="text-center mt-12">
+            <h2 class="text-3xl font-bold">💡 Pourquoi votre avis est essentiel ?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 ">
+                <p><i class="fa-solid fa-heart text-red-500 mr-2"></i>Améliorer la qualité des soins</p>
+                <p><i class="fa-solid fa-hand text-blue-500 mr-2"></i>Faciliter l'accès aux services médicaux</p>
+                <p><i class="fa-solid fa-handshake text-green-500 mr-2"></i>Renforcer la confiance entre patients et soignants</p>
+                <p><i class="fa-solid fa-magnifying-glass text-gray-500 mr-2"></i>Contribuer à l’évolution du système de santé</p>
+            </div>
+        </section><br>
+        <!-- misiion -->
+        <section>
+            <div class=" mt-[50px]">
+                <h1 class="font-bold text-3xl">Notre mission:</h1>
+                <p>
+                    Faire des hôpitaux de cote d'ivoire des lieux où chaque patient se sent écouté et pris en charge.
+                    Partagez votre expérience et contribuez à ce changement !
+                </p>
+            </div><br><br>
+
+           
+        <!-- Section Comment ça fonctionne ? -->
+        <h2 class="text-3xl text-center">📋 Comment ça marche ?</h2>
+        <section class="text-center mt-12 text-white">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                <div class="bg-blue-950 p-6 rounded-md text-center hover-effect">
+                    <img src="image/questionnaire.avif" alt="Illustration questionnaire" class="h-60 w-60 mx-auto mb-4 rounded">
+                    <p class="text-lg font-semibold">✅ Participez à l'enquête</p>
+                    <p class="text-sm">Répondez à un questionnaire simple et rapide.</p>
+                </div>
+                <div class="bg-blue-950 p-6 rounded-md text-center hover-effect">
+                    <img src="image/analyse des retours.avif" alt="Illustration analyse" class="h-60 w-60 mx-auto mb-4 rounded">
+                    <p class="text-lg font-semibold">✅ Analyse des avis</p>
+                    <p class="text-sm">Nous étudions vos réponses pour identifier les axes d'amélioration.</p>
+                </div>
+                <div class="bg-blue-950 p-6 rounded-md text-center hover-effect">
+                    <img src="image/image de recommandation.avif" alt="Illustration actions concrètes" class=" h-60 rounded w-60 mx-auto mb-4">
+                    <p class="text-lg font-semibold">✅ Actions concrètes</p>
+                    <p class="text-sm">Les hôpitaux reçoivent des recommandations basées sur vos retours.</p>
+                </div>
+            </div>
+        </section><br>
+            <!-- Donnez votre avis  -->
+            <div class="text-center mt-8">
+                <button class="px-10 py-3 text-xl bg-blue-950 text-white hover:bg-blue-900 rounded-full btn-avis"><a href="/enquête.html">Donnez votre avis maintenant</a></button>
+            </div>
+          
+        </section>
+    </main>
+    <!-- Pied de page -->
+    <footer>
+        <div class="bg-blue-950 rounded text-white h-auto mt-12 flex flex-wrap justify-center gap-10 p-10">
+            <div>
+                <a href="/accueil.html"><img src="/image/Logo blanc.jpg" alt="Logo" class="h-16 w-48"></a>
+            </div>
+            <div>
+                <h2 class="font-bold">Contact</h2>
+                <p>Adresse: Rivera bonoumin bp205</p>
+                <p>Email: monAvisSanté2025@gmail.com</p>
+                <p>Téléphone: +225 0000000000</p>
+            </div>
+            <div>
+                <h2 class="font-bold">Réseaux sociaux</h2>
+                <div class="flex gap-4">
+                    <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-qrcode"></i></a>
+                </div>
+                <!-- <div class="mt-4">
+                    <h2 class="font-bold"><a href="/A propos.html" class="text-white hover:underline">À propos</a></h2>
+                </div>-->
+            </div>
+        </div>
+        <hr>
+        <div class="h-10 w-full bg-blue-950 text-white">
+            <p class="text-center font-bold">&copy; 2025 MonAvisSanté - Tous droits réservés</p>
+        </div>
+    </footer> 
+</body>
+
+</html>

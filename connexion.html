@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="dist/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>MonAvisSanté</title>
+    <!-- Script JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          // Clic sur un lien du menu mobile
+          document.querySelectorAll("#mobile-menu a").forEach(link => {
+              link.addEventListener("click", () => {
+                  document.getElementById("mobile-menu").classList.add("hidden");
+              });
+          });
+
+          // Fonction pour ouvrir et fermer le menu mobile
+          const burgerButton = document.querySelector("button");
+          burgerButton.addEventListener("click", () => {
+              let menu = document.getElementById("mobile-menu");
+              menu.classList.toggle("hidden");
+          });
+      });
+    </script>
+    <style>
+        .hover-effect:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .btn-avis {
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-avis:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<!-- <img src="/image/sky-183948_640.jpg" alt=""> -->
+<body class="bg-slate-50 m-5">
+    <!-- Entete de la page -->
+    <header class="bg-blue-950 text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
+      <nav class="flex items-center justify-between px-4 md:px-10 py-3">
+          <!-- Logo à gauche -->
+          <div class="flex items-center">
+              <a href="/accueil.html">
+                  <img src="/image/Logo blanc.jpg" alt="Logo" class="h-10 w-40">
+              </a>
+          </div>
+  
+          <!-- Menu burger (mobile) -->
+          <button class="md:hidden text-2xl" onclick="toggleMenu()">
+              <i class="fas fa-bars"></i>
+          </button>
+  
+            <!-- Menu principal -->
+            <div class="hidden md:flex gap-4 items-center">
+              <ul class="list-none flex gap-4">
+                  <li><a href="accueil.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Accueil</a></li>
+                  <li><a href="support client.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Support clients</a></li>
+                  <li><a href="A propos.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">A propos</a></li>
+                  <li><a href="connexion.html" class="text-black font-bold px-4 py-2 bg-white rounded-full">Se connecter</a></li>
+              </ul>
+          </div>
+      </nav> 
+  </header>
+  
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden absolute top-16 left-0 right-0 bg-white shadow-lg p-4 md:hidden">
+      <ul class="flex flex-col space-y-4 text-center">
+          <li><a href="accueil.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Accueil</a></li>
+          <li><a href="tableau.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Tableau de bord</a></li>
+          <li><a href="support client.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Support clients</a></li>
+          <li><a href="connexion.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Se connecter</a></li>
+      </ul>
+    </div><br>
+
+
+  <!-- Connexion -->
+  <main> <!-- Fond gris pour le reste de la page -->
+    <section>
+      <!-- Formulaire avec fond d'image uniquement pour cette section -->
+      <div class="flex justify-center mt-[50px]">
+        <div class="border border-white h-[80vh] p-[15px] rounded-xl bg-[url('https://img.freepik.com/premium-photo/african-female-podiatrist-examining-foot-s-health-world-leprosy-day_950002-435003.jpg?uid=R188132763&ga=GA1.1.886691573.1728489771&semt=ais_authors_boost')] bg-center bg-cover backdrop-blur-sm">
+          <h1 class="text-center text-white font-bold text-3xl mt-[20px]">Connexion</h1>
+          <!-- Champ "Nom utilisateur" -->
+          <div class="flex justify-center items-center mt-[30px]">
+            <input type="text" placeholder="Nom utilisateur ......"
+              class="rounded-xl p-[10px] w-[300px] mt-[30px] outline-none ">
+          </div>
+          <div class="relative bottom-9 translate-x-2 ml-[270px]">
+            <span class="text-blue-950"><i class="fa-solid fa-user"></i></span>
+          </div>
+  
+          <!-- Champ "Mot de passe" -->
+          <div class="flex justify-center items-center mt-[10px]">
+            <input type="password" placeholder="Mot de passe..."
+              class="rounded-xl outline-none p-[10px] w-[300px] mb-[10px]">
+          </div>
+          <div class="relative bottom-12 translate-x-2 ml-[270px]">
+            <span class="text-blue-950"><i class="fa-solid fa-lock"></i></span>
+          </div>
+  
+          <!-- Case "Se souvenir de moi" -->
+          <div class="text-white flex gap-3 mb-[10px]">
+            <label><input type="checkbox"> Se souvenir de moi ?</label>
+  
+            <!-- Lien "Mot de passe oublié ?" -->
+            <a href="#">Mot de passe oublié ?</a>
+          </div>
+  
+          <!-- Bouton "Se connecter" -->
+          <button class="text-blue-950 border border-white rounded-2xl w-[300px] ml-[20px] p-2 bg-white hover:bg-opacity-20 mt-8 mb-[20px]">
+            <a href="accueil.html">se connecter</a>
+          </button>
+  
+          <!-- Lien "S'inscrire" -->
+          <div class="text-center text-white">
+            <p>Pas de compte ? <a href="/inscription .html">S'inscrire</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>  
+
+    <!-- Pied de page -->
+    <footer>
+      <div class="bg-blue-950 rounded text-white h-auto mt-12 flex flex-wrap justify-center gap-10 p-10">
+          <div>
+              <a href="/accueil.html"><img src="/image/Logo blanc.jpg" alt="Logo" class="h-16 w-48"></a>
+          </div>
+          <div>
+              <h2 class="font-bold">Contact</h2>
+              <p>Adresse: Rivera bonoumin bp205</p>
+              <p>Email: monAvisSanté2025@gmail.com</p>
+              <p>Téléphone: +225 0000000000</p>
+          </div>
+          <div>
+              <h2 class="font-bold">Réseaux sociaux</h2>
+              <div class="flex gap-4">
+                  <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
+                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa fa-qrcode"></i></a>
+              </div>
+              <!-- <div class="mt-4">
+                  <h2 class="font-bold"><a href="/A propos.html" class="text-white hover:underline">À propos</a></h2>
+              </div>-->
+          </div>
+      </div>
+      <hr>
+      <div class="h-10 w-full bg-blue-950 text-white">
+          <p class="text-center font-bold">&copy; 2025 MonAvisSanté - Tous droits réservés</p>
+      </div>
+  </footer> 
+</body>
+
+</html>

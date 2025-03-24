@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="dist/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>MonAvisSanté</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Script JavaScript -->
+    <script>
+        function toggleMenu() {
+            let menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("#mobile-menu a").forEach(link => {
+                link.addEventListener("click", () => {
+                    document.getElementById("mobile-menu").classList.add("hidden");
+                });
+            });
+        });
+    </script>
+    <style>
+        .hover-effect:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .btn-avis {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-avis:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 m-5">
+    <!-- Entete de la page -->
+    <header class="bg-blue-950 text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <nav class="flex items-center justify-between px-4 md:px-10 py-3">
+            <!-- Logo à gauche -->
+            <div class="flex items-center">
+                <a href="/accueil.html">
+                    <img src="/image/Logo blanc.jpg" alt="Logo" class="h-10 w-40">
+                </a>
+            </div>
+    
+            <!-- Menu burger (mobile) -->
+            <button class="md:hidden text-2xl" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+    
+            <!-- Menu principal -->
+            <div class="hidden md:flex gap-4 items-center">
+                <ul class="list-none flex gap-4">
+                    <li><a href="accueil.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Accueil</a></li>
+                    <li><a href="enquête.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Enquête</a></li>
+                    <li><a href="support client.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Support clients</a></li>
+                    <li><a href="A propos.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">A propos</a></li>
+                    <li><a href="connexion2.html" class="text-black font-bold px-4 py-2 bg-white rounded-full">Se connecter</a></li>
+                </ul>
+            </div>
+        </nav> 
+    </header>
+    
+    
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden fixed top-16 left-0 right-0 bg-white shadow-lg p-4 md:hidden">
+        <ul class="flex flex-col space-y-4 text-center">
+            <li><a href="accueil.html"
+                    class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Accueil</a>
+            </li>
+            <li><a href="enquête.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Enquête</a></li>
+            <li><a href="tableau.html"
+                    class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Tableau
+                    de bord</a></li>
+            <li><a href="support client.html"
+                    class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Support
+                    clients</a></li>
+            <li><a href="connexion2.html"
+                    class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Se
+                    connecter</a></li>
+        </ul>
+    </div><br><br>
+    <div>
+        <h1 class="text-2xl mt-12 flex justify-center">Tableau de Bord Administrateur - hôpital A</h1>
+    </div><br>
+    <main class="p-4 flex flex-wrap justify-around">
+        <section id="public-hospital" class="bg-white p-6 rounded shadow-md mb-6 w-1/2">
+            <h2 class="text-xl font-bold mb-4 text-center">Hôpital A</h2>
+            <div id="charts-public" class="flex flex-wrap justify-around items-center">
+                <canvas id="patientSatisfactionChartPublic" class="w-1/2"></canvas>
+                <canvas id="appointmentChartPublic" class="w-1/2"></canvas>
+            </div>
+            <h2 class="text-xl font-bold mb-4 text-center">Résultats des Indicateurs Clés de Performance (KPI)</h2>
+            <table class="min-w-full bg-green-600">
+                <thead>
+                    <tr>
+                        <th class="py-2">Indicateur</th>
+                        <th class="py-2">Valeur</th>
+                        <th class="py-2">Objectif</th>
+                        <th class="py-2">Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border px-4 py-2">Satisfaction des patients</td>
+                        <td class="border px-4 py-2">5%</td>
+                        <td class="border px-4 py-2">90%</td>
+                        <td class="border px-4 py-2 text-yellow-600">En cours</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">Durée moyenne d'attente</td>
+                        <td class="border px-4 py-2">45 minutes</td>
+                        <td class="border px-4 py-2">10 minutes</td>
+                        <td class="border px-4 py-2 text-red-600">À améliorer</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">Taux de réadmission</td>
+                        <td class="border px-4 py-2">5%</td>
+                        <td class="border px-4 py-2">5%</td>
+                        <td class="border px-4 py-2 text-gray-600">Atteint</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Configuration des graphiques pour l'hôpital public -->
+    <script>
+        const ctx1 = document.getElementById('patientSatisfactionChartPublic').getContext('2d');
+        const patientSatisfactionChartPublic = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin'],
+                datasets: [{
+                    label: 'Satisfaction des Patients',
+                    data: [1, 1, 1, 2, 2, 1],
+                    backgroundColor: '',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('appointmentChartPublic').getContext('2d');
+        const appointmentChartPublic = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin'],
+                datasets: [{
+                    label: 'Nombre de Rendez-vous',
+                    data: [50, 60, 70, 80, 85, 90],
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="bg-blue-950 rounded text-white h-auto mt-12 flex flex-wrap justify-center gap-10 p-10">
+            <div>
+                <a href="/Accueil-tableau.html"><img src="/image/Logo blanc.jpg" alt="Logo" class="h-16 w-48"></a>
+            </div>
+            <div>
+                <h2 class="font-bold">Contact</h2>
+                <p>Adresse: Rivera bonoumin bp205</p>
+                <p>Email: monAvisSanté2025@gmail.com</p>
+                <p>Téléphone: +225 0000000000</p>
+            </div>
+            <div>
+                <h2 class="font-bold">Réseaux sociaux</h2>
+                <div class="flex gap-4">
+                    <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-qrcode"></i></a>
+                </div>
+                <!-- <div class="mt-4">
+                    <h2 class="font-bold"><a href="/A propos.html" class="text-white hover:underline">À propos</a></h2>
+                </div>-->
+            </div>
+        </div>
+        <hr>
+        <div class="h-10 w-full bg-blue-950 text-white">
+            <p class="text-center font-bold">&copy; 2025 MonAvisSanté - Tous droits réservés</p>
+        </div>
+    </footer> 
+</body>
+
+</html>

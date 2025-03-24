@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/styles.css">
+    <title>Inscription</title>
+        <!-- Script JavaScript -->
+        <script>
+            function toggleMenu() {
+                let menu = document.getElementById("mobile-menu");
+                menu.classList.toggle("hidden");
+            }
+    
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelectorAll("#mobile-menu a").forEach(link => {
+                    link.addEventListener("click", () => {
+                        document.getElementById("mobile-menu").classList.add("hidden");
+                    });
+                });
+            });
+        </script>
+        <style>
+            .hover-effect:hover {
+                transform: scale(1.05);
+                transition: transform 0.3s ease-in-out;
+            }
+            .btn-avis {
+                transition: all 0.3s ease-in-out;
+            }
+            .btn-avis:hover {
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+</head>
+<body class="bg-slate-50 m-5">
+        <!-- Entete de la page -->
+        <header class="bg-blue-950 text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
+            <nav class="flex items-center justify-between px-4 md:px-10 py-3">
+                <!-- Logo à gauche -->
+                <div class="flex items-center">
+                    <a href="/accueil.html">
+                        <img src="/image/Logo blanc.jpg" alt="Logo" class="h-10 w-40">
+                    </a>
+                </div>
+        
+                <!-- Menu burger (mobile) -->
+                <button class="md:hidden text-2xl" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+        
+            <!-- Menu principal -->
+            <div class="hidden md:flex gap-4 items-center">
+                <ul class="list-none flex gap-4">
+                    <li><a href="accueil.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Accueil</a></li>
+                    <li><a href="support client.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Support clients</a></li>
+                    <li><a href="A propos.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">A propos</a></li>
+                    <li><a href="connexion.html" class="text-black font-bold px-4 py-2 bg-white rounded-full">Se connecter</a></li>
+                </ul>
+            </div>
+            </nav> 
+        </header>
+        
+         <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden fixed top-16 left-0 right-0 bg-white shadow-lg p-4 md:hidden">
+            <ul class="flex flex-col space-y-4 text-center">
+                <li><a href="accueil.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Accueil</a></li>
+                <li><a href="tableau.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Tableau de bord</a></li>
+                <li><a href="support client.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Support clients</a></li>
+                <li><a href="connexion.html" class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Se connecter</a></li>
+            </ul>
+        </div>
+
+    <section class="bg-white p-8 m-4 rounded-lg shadow-lg w-full max-w-md mt-20 mx-auto">
+        <h2 class="text-2xl font-bold mb-6 text-center text-blue-950">Inscription</h2>
+        <form id="registrationForm">
+        <div class="mb-4">
+            <label class="block text-gray-700 mb-2" for="profile">Profil</label>
+            <select id="profile" name="profile" class="w-full px-3 py-2 border rounded">
+            <option value="user">Utilisateur</option>
+            <option value="admin">Administrateur</option>
+            </select>
+        </div>
+        <div id="commonFields">
+        </div>
+        <div id="additionalFields" class="mb-4"></div>
+        <button type="submit" class="w-full bg-blue-950 text-white py-2 rounded hover:bg-blue-600">
+            <a href="accueil.html">S'inscrire</a>
+        </button>
+        </form>
+    </section><br><br><br>
+    <!-- Pied de page -->
+    <footer>
+        <div class="bg-blue-950 rounded text-white h-auto mt-12 flex flex-wrap justify-center gap-10 p-10">
+            <div>
+                <a href="/accueil.html"><img src="/image/Logo blanc.jpg" alt="Logo" class="h-16 w-48"></a>
+            </div>
+            <div>
+                <h2 class="font-bold">Contact</h2>
+                <p>Adresse: Rivera bonoumin bp205</p>
+                <p>Email: monAvisSanté2025@gmail.com</p>
+                <p>Téléphone: +225 0000000000</p>
+            </div>
+            <div>
+                <h2 class="font-bold">Réseaux sociaux</h2>
+                <div class="flex gap-4">
+                    <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-qrcode"></i></a>
+                </div>
+                <!-- <div class="mt-4">
+                    <h2 class="font-bold"><a href="/A propos.html" class="text-white hover:underline">À propos</a></h2>
+                </div>-->
+            </div>
+        </div>
+        <hr>
+        <div class="h-10 w-full bg-blue-950 text-white">
+            <p class="text-center font-bold">&copy; 2025 MonAvisSanté - Tous droits réservés</p>
+        </div>
+    </footer> 
+  <script src="script.js"></script>
+</body>
+
+</html>

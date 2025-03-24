@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquête</title>
+  <link rel="stylesheet" href="dist/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- Script JavaScript -->
+  <script>
+    function toggleMenu() {
+      let menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("#mobile-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+          document.getElementById("mobile-menu").classList.add("hidden");
+        });
+      });
+    });
+
+
+
+
+      // Ajouter une suiggestion
+
+    const suggestionsContainer = document.getElementById("suggestionsContainer");
+
+    // Fonction pour ajouter une nouvelle suggestion
+    function addSuggestion() {
+      const input = document.getElementById("suggestionInput");
+      const text = input.value.trim();
+
+      if (text) {
+        // Création d'un élément suggestion
+        const suggestionCard = document.createElement("div");
+        suggestionCard.className = "bg-white rounded-lg shadow-md p-4 flex justify-between items-center";
+
+        suggestionCard.innerHTML = `
+      <p class="text-gray-800">${text}</p>
+      <button class="bg-green-500 text-white px-4 py-1 rounded-lg hover:bg-green-600 flex items-center">
+        👍 <span class="ml-1">0</span>
+      </button>
+    `;
+
+        // Ajout d'un événement pour gérer les votes
+        const voteButton = suggestionCard.querySelector("button");
+        voteButton.addEventListener("click", () => {
+          const voteCount = voteButton.querySelector("span");
+          voteCount.textContent = parseInt(voteCount.textContent) + 1;
+        });
+
+        suggestionsContainer.appendChild(suggestionCard); // Ajoute la suggestion à la liste
+        input.value = ""; // Réinitialise le champ
+      } else {
+        alert("Veuillez entrer une suggestion !");
+
+      }
+    }
+    function clearInput() {
+      const input = document.getElementById("suggestionInput");
+      input.value = ""; // Efface le contenu du champ
+    }
+
+  </script>
+  <style>
+    .hover-effect:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .btn-avis {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-avis:hover {
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+
+</head>
+
+<body class="bg-slate-50 m-5">
+  <!-- Entete de la page -->
+  <header class="bg-blue-950 text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
+    <nav class="flex items-center justify-between px-4 md:px-10 py-3">
+      <!-- Logo à gauche -->
+      <div class="flex items-center">
+        <a href="/accueil.html">
+          <img src="/image/Logo blanc.jpg" alt="Logo" class="h-10 w-40">
+        </a>
+      </div>
+
+      <!-- Menu burger (mobile) -->
+      <button class="md:hidden text-2xl" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Menu principal -->
+      <div class="hidden md:flex gap-4 items-center">
+        <ul class="list-none flex gap-4">
+          <li><a href="accueil.html"
+              class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Accueil</a>
+          </li>
+          <li><a href="enquête.html"
+              class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Enquête</a>
+          </li>
+          <li><a href="support client.html"
+              class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Support
+              clients</a></li>
+          <li><a href="A propos.html"
+              class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">A
+              propos</a></li>
+          <li><a href="connexion2.html" class="text-black font-bold px-4 py-2 bg-white rounded-full">Se connecter</a>
+          </li>
+        </ul>
+      </div>
+  </header>
+
+  <!-- Menu Mobile -->
+  <div id="mobile-menu" class="hidden fixed top-16 left-0 right-0 bg-white shadow-lg p-4 md:hidden">
+    <ul class="flex flex-col space-y-4 text-center">
+      <li><a href="accueil.html"
+          class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Accueil</a>
+      </li>
+      <li><a href="enquête.html"
+          class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Enquête</a>
+      </li>
+      <li><a href="support client.html"
+          class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Support
+          clients</a></li>
+      <li><a href="A propos.html"
+          class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">A propos</a>
+      </li>
+      <li><a href="connexion2.html"
+          class="hover:bg-white hover:text-black font-bold px-4 py-2 bg-blue-950 text-white rounded-full">Se
+          connecter</a></li>
+    </ul>
+  </div><br><br><br>
+  <!-- Section de description du formulaire -->
+  <section>
+    <section>
+      <div class="mb-4 text-center flex flex-col items-center">
+        <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl text-center text-blue-950 mt-5">
+          Enquête sur la satisfaction des patients à Abidjan
+        </h1>
+        <p class="mt-2 text-lg sm:text-base md:text-lg text-center">
+          Ce questionnaire vise à recueillir les avis des patients afin d'améliorer
+          la qualité <br>des services hospitaliers. Vos réponses sont anonymes et
+          précieuses.
+        </p>
+      </div>
+    </section>
+
+    <!-- Le questionnaire principal -->
+    <main>
+      <div class="flex flex-col items-center">
+        <div>
+          <form action="soumettre" method="post">
+            <label for="nom" class="ml-4 mt-4 text-blue-950 font-bold sm:text-right md:text-left">Nom:</label>
+            <input type="text" placeholder="Nom..." id="nom" name="nom"
+              class="border border-black rounded-xs w-full sm:w-[300px] p-2 mt-4 mb-8"><br>
+            <hr>
+
+            <div>
+              <div class="mt-4 p-6 border shadow-xl rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl">
+                <h2 class="font-bold text-blue-950 ml-4">Age*</h2><br>
+                <label class="block"><input type="checkbox" class="mr-2">Moins de 18 ans</label><br>
+                <label class="block"><input type="checkbox" class="mr-2">31-45 ans</label><br>
+                <label class="block"><input type="checkbox" class="mr-2">46-60 ans</label><br>
+                <label class="block"><input type="checkbox" class="mr-2">Plus de 60 ans</label>
+              </div>
+
+              <div class="mt-4 p-6 border shadow-xl rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl">
+                <h2 class="text-blue-950 font-bold">Genre*</h2><br>
+                <label><input type="radio" name="genre" class="mr-4">Féminin</label><br>
+                <label><input type="radio" name="genre" class="mr-4">Masculin</label>
+              </div>
+
+              <div class="mt-4 p-6 border shadow-xl rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl">
+                <h2 class="font-bold text-blue-950">Quel type d'établissement de santé fréquentez-vous?</h2><br>
+                <label><input type="radio" name="type">Hôpital privé</label><br>
+                <label><input type="radio" name="type">Hôpital public</label>
+              </div>
+
+              <div class="mt-4 p-6 border rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl ">
+                <h2 class="text-blue-950 font-bold ">Le nom de votre hospital?</h2><br>
+                <label><input type="text " class="border border-black"></label><br>
+              </div>
+
+              <div class="mt-4 p-6 border shadow-xl rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl">
+                <h2 class="font-bold text-blue-950">Durée du séjour dans l'établissement de santé?</h2><br>
+                <select name="durée de séjour" id="durée de séjour" class="border border-black rounded px-2 py-1">
+                  <option value="moins d'un jour">Moins d'un jour</option>
+                  <option value="1-3 jours">1-3 jours</option>
+                  <option value="4-7 jours">4-7 jours</option>
+                  <option value="plus de 7 jours">Plus de 7 jours</option>
+                  <option value="mois">Mois</option>
+                  <option value="année">Année</option>
+                </select><br><br>
+              </div>
+
+              <div class="mt-4 p-6 border shadow-xl rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl">
+                <h2 class="text-blue-950 font-bold">Comment évaluez-vous la qualité des soins reçus?</h2><br>
+                <select name="qualité" id="qualité" class="border border-black rounded px-2 py-1">
+                  <option value="Excellent">Excellent</option>
+                  <option value="Bon">Bon</option>
+                  <option value="Mauvais">Mauvais</option>
+                </select><br><br>
+              </div>
+
+              <div class="mt-4 p-6 border shadow-xl rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl">
+                <h2 class="text-blue-950 font-bold">Le personnel médical a-t-il été courtois avec vous?</h2><br>
+                <label><input type="radio">Oui</label><br>
+                <label><input type="radio">Non</label><br>
+                <label for="pourquoi">Pourquoi? :</label>
+                <input type="text" id="pourquoi" name="pourquoi?" class="border border-black w-full"><br>
+              </div>
+
+              <div class="mt-4 p-6 border shadow-xl rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl">
+                <h2 class="font-bold text-blue-950">Les explications sur votre consultation étaient-elles claires?</h2>
+                <br>
+                <label><input type="radio">Oui</label><br>
+                <label><input type="radio">Non</label><br>
+              </div>
+
+              <div class="mt-4 p-6 border shadow-xl rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl">
+                <h2 class="text-blue-950 font-bold">Comment évaluez-vous la propreté de l'hôpital?</h2><br>
+                <label><input type="checkbox">Très propre</label><br>
+                <label><input type="checkbox">Propre</label><br>
+                <label><input type="checkbox">Peu propre</label><br>
+                <label><input type="checkbox">Pas du tout propre</label><br>
+              </div>
+
+              <div class="mt-4 p-6 border shadow-xl rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl">
+                <h2 class="text-blue-950 font-bold">Les équipements et installations étaient-ils adéquats?</h2><br>
+                <label><input type="radio">Oui</label><br>
+                <label><input type="radio">Non</label><br>
+                <p>Si non, pourquoi?</p><br>
+                <label>Réponse: <input type="text" class="border border-black w-full"></label><br><br>
+              </div>
+
+              <div class="mt-4 p-6 border shadow-xl rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl">
+                <h2 class="text-blue-950 font-bold">Recommanderiez-vous cet hôpital à vos proches et amis?</h2><br>
+                <label><input type="radio">Oui</label><br>
+                <label><input type="radio">Non</label><br>
+              </div>
+
+              <div class="mt-4 p-6 border shadow-xl rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl">
+                <h2 class="text-blue-950 font-bold">Quels aspects des services hospitaliers vous ont particulièrement
+                  satisfaits?</h2><br>
+                <label class="mt-4">Réponse: <input type="text" class="border border-black w-full mt-4"></label><br><br>
+              </div>
+
+              <div class="mt-4 p-6 border shadow-xl rounded-xl w-full sm:w-[600px] hover:bg-slate-100 hover:shadow-2xl">
+                <h2 class="text-blue-950 font-bold">Quels aspects des services hospitaliers nécessitent des
+                  améliorations?</h2><br><br>
+                <label>Réponse: <input type="text" class="border border-black w-full"></label><br><br>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main><br>
+    <!-- Ajouter une idée-->
+    <main class="  px-4 mt-6 flex justify-center">
+      <!-- Zone d'ajout -->
+      <div class="bg-white rounded-lg shadow-md p-6 mb-6 hover:shadow-2xl ">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Ajoutez une suggestion:</h2>
+        <div class="flex gap-4">
+          <input type="text" id="suggestionInput" placeholder="Votre idée ici..."
+            class="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <button onclick="addSuggestion()"
+            class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            Ajouter
+          </button>
+          <button onclick="clearInput()"
+            class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">
+            Supprimer
+          </button>
+        </div>
+      </div>
+
+      <!-- Zone des suggestions -->
+      <section id="suggestionsContainer" class="grid gap-4">
+        <!-- Les idées apparaîtront ici grâce à JavaScript -->
+      </section>
+    </main>
+    <div class="text-center rounded p-2 text-white sm:w-full mt-8 mx-auto">
+      <button type="submit" class="w-auto px-6 py-2 bg-blue-950 text-white font-bold rounded">Envoyer</button>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+      <div class="bg-blue-950 rounded text-white h-auto mt-12 flex flex-wrap justify-center gap-10 p-10">
+        <div>
+          <a href="/accueil.html"><img src="/image/Logo blanc.jpg" alt="Logo" class="h-16 w-48"></a>
+        </div>
+        <div>
+          <h2 class="font-bold">Contact</h2>
+          <p>Adresse: Rivera bonoumin bp205</p>
+          <p>Email: monAvisSanté2025@gmail.com</p>
+          <p>Téléphone: +225 0000000000</p>
+        </div>
+        <div>
+          <h2 class="font-bold">Réseaux sociaux</h2>
+          <div class="flex gap-4">
+            <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-qrcode"></i></a>
+          </div>
+          <!-- <div class="mt-4">
+                  <h2 class="font-bold"><a href="/A propos.html" class="text-white hover:underline">À propos</a></h2>
+              </div>-->
+        </div>
+      </div>
+      <hr>
+      <div class="h-10 w-full bg-blue-950 text-white">
+        <p class="text-center font-bold">&copy; 2025 MonAvisSanté - Tous droits réservés</p>
+      </div>
+    </footer>
+</body>
+
+</html>
